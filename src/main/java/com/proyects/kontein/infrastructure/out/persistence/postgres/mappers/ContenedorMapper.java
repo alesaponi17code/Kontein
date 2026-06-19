@@ -18,7 +18,7 @@ public interface ContenedorMapper {
     @Mapping(target = "servidor", ignore = true)
     Contenedor toDomain(ContenedorEntity entity);
 
-    @Mapping(target = "id", expression = "java(domain.getId().valor())")
+    @Mapping(target = "id", expression = "java(domain.getId().value())")
     @Mapping(target = "estado", source = "estado")
     @Mapping(target = "servidorId", expression = "java(domain.getServidor() != null ? domain.getServidor().getServidorId() : null)")
     ContenedorEntity toEntity(Contenedor domain);

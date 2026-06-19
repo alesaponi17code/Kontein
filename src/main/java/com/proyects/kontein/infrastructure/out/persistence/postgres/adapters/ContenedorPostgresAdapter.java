@@ -31,7 +31,7 @@ public class ContenedorPostgresAdapter implements ContenedorRepository {
 
     @Override
     public Optional<Contenedor> findById(ContenedorId id) {
-        return contenedorPostgresRepository.findById(id.valor())
+        return contenedorPostgresRepository.findById(id.value())
                 .map(contenedorMapper::toDomain);
     }
 
@@ -44,6 +44,6 @@ public class ContenedorPostgresAdapter implements ContenedorRepository {
 
     @Override
     public void eliminar(ContenedorId id) {
-        contenedorPostgresRepository.deleteById(id.valor());
+        contenedorPostgresRepository.deleteById(id.value());
     }
 }

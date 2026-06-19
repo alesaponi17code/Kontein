@@ -35,18 +35,18 @@ public class DockerJavaAdapter implements com.proyects.kontein.domain.port.out.D
     @Override
     public void iniciarContenedor(ContenedorId id) {
         try {
-            dockerClient.startContainerCmd(id.valor()).exec();
+            dockerClient.startContainerCmd(id.value()).exec();
         } catch (Exception e) {
-            throw new DockerConnectionException("Error al iniciar contenedor: " + id.valor(), e);
+            throw new DockerConnectionException("Error al iniciar contenedor: " + id.value(), e);
         }
     }
 
     @Override
     public void pararContenedor(ContenedorId id) {
         try {
-            dockerClient.stopContainerCmd(id.valor()).exec();
+            dockerClient.stopContainerCmd(id.value()).exec();
         } catch (Exception e) {
-            throw new DockerConnectionException("Error al parar contenedor: " + id.valor(), e);
+            throw new DockerConnectionException("Error al parar contenedor: " + id.value(), e);
         }
     }
 
@@ -54,9 +54,9 @@ public class DockerJavaAdapter implements com.proyects.kontein.domain.port.out.D
     @Override
     public void eliminarContenedor(ContenedorId id) {
         try {
-            dockerClient.removeContainerCmd(id.valor()).withForce(true).exec();
+            dockerClient.removeContainerCmd(id.value()).withForce(true).exec();
         } catch (Exception e) {
-            throw new DockerConnectionException("Error al eliminar contenedor: " + id.valor(), e);
+            throw new DockerConnectionException("Error al eliminar contenedor: " + id.value(), e);
         }
     }
 

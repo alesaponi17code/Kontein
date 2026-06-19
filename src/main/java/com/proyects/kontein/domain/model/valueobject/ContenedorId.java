@@ -1,16 +1,16 @@
 package com.proyects.kontein.domain.model.valueobject;
 
-public record ContenedorId(String valor) {
+public record ContenedorId(String value) {
     
     public ContenedorId {
-        if (valor == null || valor.isBlank()) {
+        if (value == null || value.isBlank()) {
             throw new IllegalArgumentException("ContenedorId no puede ser nulo o vacío");
         }
     }
 
     @Override
     public String toString() {
-        return valor;
+        return value;
     }
 }
 

@@ -10,6 +10,7 @@ import com.proyects.kontein.domain.model.valueobject.Correo;
 import com.proyects.kontein.domain.port.out.UsuarioRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.proyects.kontein.domain.exception.CorreoYaRegistradoException;
 import com.proyects.kontein.domain.exception.CredencialesIncorrectasException;
 import com.proyects.kontein.domain.exception.UsuarioNotFoundException;
 
@@ -35,7 +36,7 @@ public class UsuarioService implements UsuarioUseCase {
     @Override
     public Usuario registrar(Usuario usuario) {
         if (usuarioRepository.existePorCorreo(usuario.getCorreo())) {
-            throw new IllegalArgumentException("El correo ya está registrado");
+            throw new CorreoYaRegistradoException("El correo ya está registrado");
         }
 
         String hashContrasena = passwordEncoder.encode(usuario.getContrasena().value());
